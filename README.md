@@ -26,3 +26,7 @@ NODE_TYPE           = dc2.large
 }
 ```
 - !!! Do not to clean up the AWS resources in the buttom of the notebook 
+
+## Data modeling
+- After launching the Redshift cluster via the `IaC-Redshift.ipynb`, execute the `create_tables.py` to drop and create all needed tables in Redshift.
+- The `create_tables.py` imports queries from `sql_queries.py` which contains all sql statements.
