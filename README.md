@@ -30,3 +30,5 @@ NODE_TYPE           = dc2.large
 ## Data modeling
 - After launching the Redshift cluster via the `IaC-Redshift.ipynb`, execute the `create_tables.py` to drop and create all needed tables in Redshift.
 - The `create_tables.py` imports queries from `sql_queries.py` which contains all sql statements.
+### Entity Relationship Diagram
+![ERD-Sparkify](https://user-images.githubusercontent.com/47854692/105757705-9bbee980-5f4e-11eb-9033-c8795328f6a6.png)
