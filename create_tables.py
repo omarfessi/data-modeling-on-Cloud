@@ -32,20 +32,14 @@ def create_tables(cur, conn):
         cur.execute(query)
         conn.commit()
 def main():
-	"""
-    Initiate a configparser instance and read the configuration file 'redshift-configuration.cfg'
-    Establich the connection to the postgres database in Redshift by providing host, database name and credentials in 'redshift-configuration.cfg'
-    Instanciate a cursor to allow Python code to execute PostgreSQL command in the database session
-    Call drop_tables and create_tables defined above 
-    Close the connection.
-    """
-    config=configparser.configParser()
-    config.read_file('redshift-configuration.cfg')
-    conn=psycopg2.connect("host={} dbname={} user={} password={} port={}".format(*config['CLUSTER'].values()))
-    cur=conn.cursor()
-    drop_tables(cur, conn)
-    create_tables(cur, conn)
-    conn.close()
-if __name__='__main__':
+	config=configparser.ConfigParser()
+	config.read_file(open('redshift-configuration.cfg'))
+	conn=psycopg2.connect("host={} dbname={} user={} password={} port={}".format(*config['DATABASE_CONFIGURATION'].values()))
+	cur=conn.cursor()
+	drop_tables(cur, conn)
+	create_tables(cur, conn)
+	conn.close()
+
+if __name__=='__main__':
 	main()
 
