@@ -42,22 +42,22 @@ NODE_TYPE           = dc2.large
 ## Data modeling
 ### The project Datasets
 The raw data is partitioned into 2 different datasets, one is a subset of real data from the Million Song Dataset, and the other one consists of log files in JSON format which stores activity logs based on the song in the first dataset. You'll be working with two datasets that reside in S3. Here are the S3 links for each:
-Song data: s3://udacity-dend/song_data
-Log data : s3://udacity-dend/log_data
+Song data: `s3://udacity-dend/song_data`
+Log data : `s3://udacity-dend/log_data`
 
 The files are partitioned by the first three letters of each song's track ID. For example, here are filepaths to two files in this song's dataset:
-song_data/A/B/C/TRABCEI128F424C983.json
-song_data/A/A/B/TRAABJL12903CDCF1A.json
+`song_data/A/B/C/TRABCEI128F424C983.json`
+`song_data/A/A/B/TRAABJL12903CDCF1A.json`
 
-And below is an example of what a single song file, TRAABJL12903CDCF1A.json, looks like.
+And below is an example of what a single song file, `TRAABJL12903CDCF1A.json`, looks like.
 
-{"num_songs": 1, "artist_id": "ARJIE2Y1187B994AB7", "artist_latitude": null, "artist_longitude": null, "artist_location": "", "artist_name": "Line Renaud", "song_id": "SOUPIRU12A6D4FA1E1", "title": "Der Kleine Dompfaff", "duration": 152.92036, "year": 0}
+```{"num_songs": 1, "artist_id": "ARJIE2Y1187B994AB7", "artist_latitude": null, "artist_longitude": null, "artist_location": "", "artist_name": "Line Renaud", "song_id": "SOUPIRU12A6D4FA1E1", "title": "Der Kleine Dompfaff", "duration": 152.92036, "year": 0}```
 
 The second dataset consists of log files in JSON format based on the songs in the dataset above. These simulate app activity logs from an imaginary music streaming app based on configuration settings.
 
 The log files in the dataset you'll be working with are partitioned by year and month. For example, here are filepaths to two files in this dataset.
-log_data/2018/11/2018-11-12-events.json
-log_data/2018/11/2018-11-13-events.json
+`log_data/2018/11/2018-11-12-events.json`
+`log_data/2018/11/2018-11-13-events.json`
 
 ### Execution Steps
 - After launching the Redshift cluster via the `IaC-Redshift.ipynb`, execute the `create_tables.py` to drop and create all needed tables in Redshift.
